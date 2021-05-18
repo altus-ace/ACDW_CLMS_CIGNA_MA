@@ -14,7 +14,7 @@
     </RootPath>
     <RootNamespace>ACDW_CLMS_CIGNA_MA</RootNamespace>
     <AssemblyName>ACDW_CLMS_CIGNA_MA</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
+    <ModelCollation>1033,CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -23,6 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,5 +59,96 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="adi\" />
+    <Folder Include="adi\Tables\" />
+    <Folder Include="adw\" />
+    <Folder Include="adw\Tables\" />
+    <Folder Include="lst\" />
+    <Folder Include="lst\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="adi\Views\" />
+    <Folder Include="adw\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="adi\Functions\" />
+    <Folder Include="adi\Stored Procedures\" />
+    <Folder Include="ast\" />
+    <Folder Include="ast\Stored Procedures\" />
+    <Folder Include="amd\" />
+    <Folder Include="amd\Stored Procedures\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="adw\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="adi\Tables\NtfCignaMATXWklyCensus.sql" />
+    <Build Include="adw\Tables\DimCignaMAMemberKeys.sql" />
+    <Build Include="adi\Tables\CignaMAMbrElig.sql" />
+    <Build Include="adi\Tables\CignaMAMembership.sql" />
+    <Build Include="adi\Tables\CignaMAProvider.sql" />
+    <Build Include="adi\Tables\Claims_DiagCodes.sql" />
+    <Build Include="adi\Tables\Claims_ProcCodes.sql" />
+    <Build Include="adi\Tables\MedClaims_Adjustments.sql" />
+    <Build Include="adi\Tables\MedClaims_Details.sql" />
+    <Build Include="adi\Tables\MedClaims_Headers.sql" />
+    <Build Include="lst\Tables\lstMapCareoppsPrograms.sql" />
+    <Build Include="adi\Tables\Rx_Claims.sql" />
+    <Build Include="lst\Tables\lstChronicConditionIndicator.sql" />
+    <Build Include="lst\Tables\lstCareOpToPlan.sql" />
+    <Build Include="lst\Tables\LIST_QM_Mapping.sql" />
+    <Build Include="adi\Tables\CignaMA_AWV.sql" />
+    <Build Include="adi\Tables\CignaMA_MedAdherencePlans.sql" />
+    <Build Include="lst\Tables\list_client.sql" />
+    <Build Include="lst\Tables\List_PCP.sql" />
+    <Build Include="adi\Tables\CignaMA_ACECustomerSummary.sql" />
+    <Build Include="adi\Tables\tmp_CignaMAMembership.sql" />
+    <Build Include="dbo\Tables\Membership Run 3.3.20 _1_.sql" />
+    <Build Include="lst\Tables\List_ICD10PCScwCCSCategory.sql" />
+    <Build Include="adi\Tables\CignaMACareOpps.sql" />
+    <Build Include="lst\Tables\List_CCN.sql" />
+    <Build Include="dbo\Views\tmp_vw_AH_Eligibility.sql" />
+    <Build Include="dbo\Views\tmp_VW_AH_MemberPCP.sql" />
+    <Build Include="dbo\Views\tmp_VW_AH_MEMBERSHIP.sql" />
+    <Build Include="dbo\Views\tmp_VW_AH_PROGRAMENROLLMENT.sql" />
+    <Build Include="adi\Views\tmp_vw_CignaMemberhship.sql" />
+    <Build Include="adw\Views\vw_Exp_GHH_CignaMemberhship.sql" />
+    <Build Include="adw\Views\vw_EXP_AH_AWV.sql" />
+    <Build Include="Security\ITS-DB-BA.sql" />
+    <Build Include="Security\ace_admin.sql" />
+    <Build Include="Security\ace_admin_1.sql" />
+    <Build Include="Security\altus_sa.sql" />
+    <Build Include="Security\altus_sa_1.sql" />
+    <Build Include="Security\ALTUSACE_ITS-EXCLUDE-DB.sql" />
+    <Build Include="Security\ALTUSACE_ITS-EXCLUDE-DB_1.sql" />
+    <Build Include="Security\ALTUSACE_ITS-DB-BA.sql" />
+    <Build Include="Security\ALTUSACE_ITS-DB-BA_1.sql" />
+    <Build Include="Security\BoomiDbUser.sql" />
+    <Build Include="Security\BoomiDbUser_1.sql" />
+    <Build Include="Security\ALTUSACE_Rpt_Admin.sql" />
+    <Build Include="Security\ALTUSACE_Rpt_Admin_1.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="adi\Functions\GetMbrNpiAndTin_CignaMA.sql" />
+    <Build Include="adi\Functions\Split.sql" />
+    <Build Include="adi\Stored Procedures\ImportNtfCignaMATXWklyCensus.sql" />
+    <Build Include="ast\Stored Procedures\UpdateAdiLineageCOP.sql" />
+    <Build Include="amd\Stored Procedures\sp_AceEtlAudit_Open.sql" />
+    <Build Include="amd\Stored Procedures\sp_AceEtlAudit_Close.sql" />
+    <Build Include="dbo\Stored Procedures\usp_QM_Error_handler.sql" />
+    <Build Include="adw\Stored Procedures\pstCopExportStagingToAdw_CignaMA.sql" />
+    <Build Include="ast\Stored Procedures\z_pstCopLoadToStg_CignaMA_OLD.sql" />
+    <Build Include="adw\Stored Procedures\Load_Pdw_MasterLoad_CopCignaMA.sql" />
+    <Build Include="adi\Stored Procedures\ImportCignaMA_AWV.sql" />
+    <Build Include="adi\Stored Procedures\ImporCignaMA_MedAdherencePlans.sql" />
+    <Build Include="adw\Stored Procedures\Pdw_CignaMAQM_AWV.sql" />
+    <Build Include="adi\Stored Procedures\ImportCignaMA_ACECustomerSummary.sql" />
+    <Build Include="adi\Stored Procedures\Importtmp_CignaMAMembership.sql" />
+    <Build Include="adi\Stored Procedures\ImportCignaMACareOpps.sql" />
+    <Build Include="ast\Stored Procedures\pstCopLoadToStg_CignaMA_2.sql" />
+    <Build Include="Security\adi.sql" />
+    <Build Include="Security\adw.sql" />
+    <Build Include="Security\ALTUSACE_ITS-DB-BA_2.sql" />
+    <Build Include="Security\amd.sql" />
+    <Build Include="Security\ast.sql" />
+    <Build Include="Security\lst.sql" />
   </ItemGroup>
 </Project>
